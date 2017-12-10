@@ -2,6 +2,7 @@ import React from 'react';
 
 import SingleInput from './SingleInput.js';
 import DropDown from './DropDown.js';
+import RadioGroup from './RadioGroup.js';
 
 class FormContainer extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class FormContainer extends React.Component {
       email: "",
       phone: "",
       gender: "",
+      genderSelection: ["Male", "Female"],
       dayOfBirth: "",
       daySelection: [],
       monthOfBirth: "",
@@ -30,6 +32,7 @@ class FormContainer extends React.Component {
     this.handleDaySelect = this.handleDaySelect.bind(this);
     this.handleMonthSelect = this.handleMonthSelect.bind(this);
     this.handleYearSelect = this.handleYearSelect.bind(this);
+    this.handleGenderSelect = this.handleGenderSelect.bind(this);
   }
 
   componentDidMount() {
@@ -95,6 +98,10 @@ class FormContainer extends React.Component {
     this.setState({yearOfBirth: e.target.value});
   }
 
+  handleGenderSelect(e) {
+    this.setState({gender: e.target.value});
+  }
+
   render() {
     return (
       <form onSubmit={this.handleFormSubmit}>
@@ -105,6 +112,7 @@ class FormContainer extends React.Component {
         <DropDown name="day" selectedOption={this.state.dayOfBirth} func={this.handleDaySelect} placeHolder="Day" options={this.state.daySelection} />
         <DropDown name="month" selectedOption={this.state.monthOfBirth} func={this.handleMonthSelect} placeHolder="Month" options={this.state.monthSelection} />
         <DropDown name="year" selectedOption={this.state.yearOfBirth} func={this.handleYearSelect} placeHolder="Year" options={this.state.yearSelection} />
+        <RadioGroup title="Choose your gender" name="gender" func={this.handleGenderSelect} type="radio" options={this.state.genderSelection} selectedOption={this.state.gender} />
         <input type="submit" value="Submit" />
         <button onClick={this.handleFormClear}>Clear</button>
       </form>
