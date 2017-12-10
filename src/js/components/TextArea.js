@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TextArea = (props) => (
-  <div>
-    <label>{props.title}</label>
-    <textarea name={props.name} value={props.content} onChange={props.func} rows={props.rows} placeholder={props.placeHolder} />
+  <div className="form__wrapper">
+    <label className="form__label">{props.title}</label>
+    <textarea className="form__input" name={props.name} value={props.content} onChange={props.func} rows={props.rows} placeholder={props.placeHolder} />
   </div>
 );
 

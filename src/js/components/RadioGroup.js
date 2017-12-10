@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const RadioGroup = (props) => (
-  <div>
-    <label>{props.title}</label>
+  <div className="form__wrapper">
+    <label className="form__label">{props.title}</label>
     <div>
       {props.options.map(o => {
         return (
           <label key={o}>
-            <input name={props.name} onChange={props.func} value={o} checked={props.selectedOption.indexOf(o) > -1} type={props.type} /> {o}
+            <input className="form__radio" name={props.name} onChange={props.func} value={o} checked={props.selectedOption.indexOf(o) > -1} type={props.type} /> {o}
           </label>
         );
       })}

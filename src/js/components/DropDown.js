@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DropDown = (props) => (
-    <select name={props.name} value={props.selectedOption} onChange={props.func}>
+    <select className="form__select" name={props.name} value={props.selectedOption} onChange={props.func}>
       <option value="">{props.placeHolder}</option>
-      {props.options.map(o => {
-        return (
-          <option key={o} value={o}>{o}</option>
-        );
-      })}
+        {props.options.map(o => {
+          return (
+            <option key={o} value={o}>{o}</option>
+          );
+        })}
     </select>
 );
 

@@ -3,3 +3,43 @@ body {
   margin: 0px;
   box-sizing: border-box;
 }
+
+.form {
+  width: 500px;
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+
+  &__heading {
+    margin: 15px 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+    &--inline {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__label {
+    font-size: 12px;
+  }
+
+  &__input {
+    margin-bottom: 25px;
+  }
+
+  &__select {
+    width: 150px;
+    margin-bottom: 25px;
+  }
+
+  &__radio {
+    margin-bottom: 25px;
+  }
+}
