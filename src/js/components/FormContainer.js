@@ -3,6 +3,7 @@ import React from 'react';
 import SingleInput from './SingleInput.js';
 import DropDown from './DropDown.js';
 import RadioGroup from './RadioGroup.js';
+import TextArea from './TextArea.js';
 
 class FormContainer extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class FormContainer extends React.Component {
     this.handleMonthSelect = this.handleMonthSelect.bind(this);
     this.handleYearSelect = this.handleYearSelect.bind(this);
     this.handleGenderSelect = this.handleGenderSelect.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
   }
 
   componentDidMount() {
@@ -102,6 +104,10 @@ class FormContainer extends React.Component {
     this.setState({gender: e.target.value});
   }
 
+  handleDescriptionChange(e) {
+    this.setState({description: e.target.value});
+  }
+
   render() {
     return (
       <form onSubmit={this.handleFormSubmit}>
@@ -113,6 +119,7 @@ class FormContainer extends React.Component {
         <DropDown name="month" selectedOption={this.state.monthOfBirth} func={this.handleMonthSelect} placeHolder="Month" options={this.state.monthSelection} />
         <DropDown name="year" selectedOption={this.state.yearOfBirth} func={this.handleYearSelect} placeHolder="Year" options={this.state.yearSelection} />
         <RadioGroup title="Choose your gender" name="gender" func={this.handleGenderSelect} type="radio" options={this.state.genderSelection} selectedOption={this.state.gender} />
+        <TextArea title="Write something about yourself" name="description" content={this.state.description} func={this.handleDescriptionChange} rows={7} placeHolder="Your description" />
         <input type="submit" value="Submit" />
         <button onClick={this.handleFormClear}>Clear</button>
       </form>
