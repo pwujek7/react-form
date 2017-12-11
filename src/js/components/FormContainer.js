@@ -112,20 +112,20 @@ class FormContainer extends React.Component {
     return (
       <form className="form" onSubmit={this.handleFormSubmit}>
         <h1 className="form__heading">ReactJS Form</h1>
-        <SingleInput name="name" inputType="text" content={this.state.name} func={this.handleNameChange} placeHolder="Type your name" title="Name: " />
-        <SingleInput name="surname" inputType="text" content={this.state.surname} func={this.handleSurnameChange} placeHolder="Type your surname" title="Surname: " />
-        <SingleInput name="email" inputType="text" content={this.state.email} func={this.handleEmailChange} placeHolder="Type your e-mail" title="E-mail: " />
-        <SingleInput name="phone" inputType="text" content={this.state.phone} func={this.handlePhoneChange} placeHolder="Type your phone number" title="Phone: " />
+        <SingleInput name="name" inputType="text" content={this.state.name} func={this.handleNameChange} placeHolder="Type your name" title="Name:" />
+        <SingleInput name="surname" inputType="text" content={this.state.surname} func={this.handleSurnameChange} placeHolder="Type your surname" title="Surname:" />
+        <SingleInput name="email" inputType="text" content={this.state.email} func={this.handleEmailChange} placeHolder="Type your e-mail" title="E-mail:" />
+        <SingleInput name="phone" inputType="text" content={this.state.phone} func={this.handlePhoneChange} placeHolder="Type your phone number" title="Phone:" />
         <div className="form__wrapper form__wrapper--inline">
           <DropDown name="day" selectedOption={this.state.dayOfBirth} func={this.handleDaySelect} placeHolder="Day" options={this.state.daySelection} />
           <DropDown name="month" selectedOption={this.state.monthOfBirth} func={this.handleMonthSelect} placeHolder="Month" options={this.state.monthSelection} />
           <DropDown name="year" selectedOption={this.state.yearOfBirth} func={this.handleYearSelect} placeHolder="Year" options={this.state.yearSelection} />
         </div>
-        <RadioGroup title="Choose your gender" name="gender" func={this.handleGenderSelect} type="radio" options={this.state.genderSelection} selectedOption={this.state.gender} />
-        <TextArea title="Write something about yourself" name="description" content={this.state.description} func={this.handleDescriptionChange} rows={7} placeHolder="Your description" />
+        <RadioGroup title="Choose your gender:" name="gender" func={this.handleGenderSelect} type="radio" options={this.state.genderSelection} selectedOption={this.state.gender} />
+        <TextArea title="Write something about yourself:" name="description" content={this.state.description} func={this.handleDescriptionChange} rows={7} placeHolder="Your description" />
         <div className="form__wrapper form__wrapper--inline">
-          <button onClick={this.handleFormClear}>Clear</button>
-          <input type="submit" value="Submit" />
+          <button className="form__btn form__btn--clear" onClick={this.handleFormClear}>Clear</button>
+          <input className="form__btn form__btn--submit" type="submit" value="Submit" />
         </div>
       </form>
     )

@@ -7,7 +7,7 @@ const RadioGroup = (props) => (
     <div>
       {props.options.map(o => {
         return (
-          <label key={o}>
+          <label className="form__label form__label--radio" key={o}>
             <input className="form__radio" name={props.name} onChange={props.func} value={o} checked={props.selectedOption.indexOf(o) > -1} type={props.type} /> {o}
           </label>
         );

@@ -1,3 +1,26 @@
+$clr-red: #ff4b33;
+$clr-violet: #d600a4;
+$clr-gray: #303030;
+$clr-white: #e1e1e1;
+
+$fnt-lobster: Lobster, cursive;
+$fnt-arimo: Arimo, sans-serif;
+
+@mixin background-gradient($clr-one, $clr-two) {
+  background-color: $clr-one;
+  background: -moz-linear-gradient(-45deg, $clr-one 0%, $clr-two 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, $clr-one), color-stop(100%, $clr-two));
+  background: -webkit-linear-gradient(-45deg, $clr-one 0%, $clr-two 100%);
+  background: -ms-linear-gradient(-45deg, $clr-one 0%, $clr-two 100%);
+  background: linear-gradient(135deg, $clr-one 0%, $clr-two 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$clr-one', endColorstr='$clr-two', GradientType=1 );
+}
+
+html {
+  height: 100vh;
+  @include background-gradient($clr-red, $clr-violet);
+}
+
 body {
   padding: 0px;
   margin: 0px;
@@ -6,13 +29,31 @@ body {
 
 .form {
   width: 500px;
-  margin: 50px auto;
+  padding: 25px;
+  margin: 75px auto;
+  background-color: $clr-gray;
+  border-top: 4px solid $clr-violet;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
+  position: relative;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    @include background-gradient($clr-violet, $clr-red);
+    top: 5px;
+    right: -5px;
+    z-index: -10;
+    position: absolute;
+  }
 
   &__heading {
-    margin: 15px 0;
+    margin: 0px 0px 25px 0px;
+    font-size: 36px;
+    font-family: $fnt-lobster;
+    color: $clr-white;
   }
 
   &__wrapper {
@@ -27,19 +68,78 @@ body {
   }
 
   &__label {
+    color: $clr-white;
+    font-family: $fnt-arimo;
+    font-weight: bold;
     font-size: 12px;
+    padding: 0px 0px 5px 15px;
+
+    &--radio {
+      font-size: 14px;
+      font-weight: normal;
+      padding: 0px;
+    }
   }
 
   &__input {
     margin-bottom: 25px;
+    padding: 10px;
+    font-family: $fnt-arimo;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: $clr-white;
+    background-color: #3a3a3a;
+    transition: .5s;
+
+    &--area {
+      resize: none;
+    }
+
+    &:focus {
+      color: $clr-white;
+      border-bottom: 2px solid $clr-violet;
+    }
   }
 
   &__select {
     width: 150px;
     margin-bottom: 25px;
+    padding: 10px;
   }
 
   &__radio {
     margin-bottom: 25px;
+    color: $clr-white;
+    font-family: $fnt-arimo;
+  }
+
+  &__btn {
+    font-size: 18px;
+    font-family: $fnt-lobster;
+    padding: 10px 20px;
+    background-color: transparent;
+    outline: none;
+    color: $clr-red;
+    cursor: pointer;
+    transition: .75s;
+
+    &--submit {
+      border: 2px solid $clr-red;
+
+      &:hover {
+        color: $clr-white;
+        @include background-gradient($clr-red, $clr-violet);
+      }
+    }
+
+    &--clear {
+      text-decoration: underline;
+      border: none;
+
+      &:hover {
+        color: $clr-white;
+      }
+    }
   }
 }
