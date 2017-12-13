@@ -63,6 +63,11 @@ body {
 
     &--inline {
       flex-direction: row;
+      justify-content: space-around;
+    }
+
+    &--inline-2 {
+      flex-direction: row;
       justify-content: space-between;
     }
   }
@@ -78,6 +83,15 @@ body {
       font-size: 14px;
       font-weight: normal;
       padding: 0px;
+    }
+
+    &--top {
+      margin-top: 25px;
+    }
+
+    &--legend {
+      padding: 0px;
+      margin-left: 13px;
     }
   }
 
@@ -102,10 +116,27 @@ body {
     }
   }
 
+  &__fieldset {
+    border: 2px solid #3a3a3a;
+  }
+
   &__select {
-    width: 150px;
-    margin-bottom: 25px;
+    font-family: $fnt-arimo;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    width: 125px;
+    margin: 15px 0px;
     padding: 10px;
+    color: $clr-white;
+    background-color: #3a3a3a;
+    position: relative;
+    transition: .5s;
+
+    &:focus {
+      color: $clr-white;
+      border-bottom: 2px solid $clr-violet;
+    }
   }
 
   &__radio {
@@ -141,5 +172,10 @@ body {
         color: $clr-white;
       }
     }
+  }
+
+  &__fieldset {
+    margin: 0px;
+    padding: 0px;
   }
 }

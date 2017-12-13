@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 const DropDown = (props) => (
     <select className="form__select" name={props.name} value={props.selectedOption} onChange={props.func}>
-      <option value="">{props.placeHolder}</option>
+      <option className="form__option" value="">{props.placeHolder}</option>
         {props.options.map(o => {
           return (
-            <option key={o} value={o}>{o}</option>
+            <option className="form__option" key={o} value={o}>{o}</option>
           );
         })}
     </select>

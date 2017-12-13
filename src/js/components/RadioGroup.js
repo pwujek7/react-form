@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const RadioGroup = (props) => (
   <div className="form__wrapper">
-    <label className="form__label">{props.title}</label>
+    <label className="form__label form__label--top">{props.title}</label>
     <div>
       {props.options.map(o => {
         return (

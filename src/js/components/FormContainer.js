@@ -116,14 +116,17 @@ class FormContainer extends React.Component {
         <SingleInput name="surname" inputType="text" content={this.state.surname} func={this.handleSurnameChange} placeHolder="Type your surname" title="Surname:" />
         <SingleInput name="email" inputType="text" content={this.state.email} func={this.handleEmailChange} placeHolder="Type your e-mail" title="E-mail:" />
         <SingleInput name="phone" inputType="text" content={this.state.phone} func={this.handlePhoneChange} placeHolder="Type your phone number" title="Phone:" />
-        <div className="form__wrapper form__wrapper--inline">
-          <DropDown name="day" selectedOption={this.state.dayOfBirth} func={this.handleDaySelect} placeHolder="Day" options={this.state.daySelection} />
-          <DropDown name="month" selectedOption={this.state.monthOfBirth} func={this.handleMonthSelect} placeHolder="Month" options={this.state.monthSelection} />
-          <DropDown name="year" selectedOption={this.state.yearOfBirth} func={this.handleYearSelect} placeHolder="Year" options={this.state.yearSelection} />
-        </div>
+        <fieldset className="form__fieldset">
+          <legend className="form__label form__label--legend">Date of birth:</legend>
+          <div className="form__wrapper form__wrapper--inline">
+            <DropDown name="day" selectedOption={this.state.dayOfBirth} func={this.handleDaySelect} placeHolder="Day" options={this.state.daySelection} />
+            <DropDown name="month" selectedOption={this.state.monthOfBirth} func={this.handleMonthSelect} placeHolder="Month" options={this.state.monthSelection} />
+            <DropDown name="year" selectedOption={this.state.yearOfBirth} func={this.handleYearSelect} placeHolder="Year" options={this.state.yearSelection} />
+          </div>
+        </fieldset>
         <RadioGroup title="Choose your gender:" name="gender" func={this.handleGenderSelect} type="radio" options={this.state.genderSelection} selectedOption={this.state.gender} />
         <TextArea title="Write something about yourself:" name="description" content={this.state.description} func={this.handleDescriptionChange} rows={7} placeHolder="Your description" />
-        <div className="form__wrapper form__wrapper--inline">
+        <div className="form__wrapper form__wrapper--inline-2">
           <button className="form__btn form__btn--clear" onClick={this.handleFormClear}>Clear</button>
           <input className="form__btn form__btn--submit" type="submit" value="Submit" />
         </div>
