@@ -2,18 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const RadioGroup = (props) => (
-  <div className="form__wrapper">
-    <label className="form__label form__label--top">{props.title}</label>
-    <div>
-      {props.options.map(o => {
-        return (
-          <label className="form__label form__label--radio" key={o}>
-            <input className="form__radio" name={props.name} onChange={props.func} value={o} checked={props.selectedOption.indexOf(o) > -1} type={props.type} /> {o}
-          </label>
-        );
-      })}
+  <fieldset className="form__fieldset">
+    <legend className="form__label form__label--legend form__label--legend-top">{props.title}</legend>
+    <div className="form__wrapper">
+      <div>
+        {props.options.map(o => {
+          return (
+            <label className="form__label form__label--radio" key={o}>
+              <input className="form__radio" name={props.name} onChange={props.func} value={o} checked={props.selectedOption.indexOf(o) > -1} type={props.type} /> {o}
+            </label>
+          );
+        })}
+      </div>
     </div>
-  </div>
+  </fieldset>
 );
 
 RadioGroup.propTypes = {

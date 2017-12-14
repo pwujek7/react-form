@@ -85,10 +85,6 @@ body {
       padding: 0px;
     }
 
-    &--top {
-      margin-top: 25px;
-    }
-
     &--legend {
       padding: 0px;
       margin-left: 13px;
@@ -96,7 +92,7 @@ body {
   }
 
   &__input {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     padding: 10px;
     font-family: $fnt-arimo;
     outline: none;
@@ -118,6 +114,8 @@ body {
 
   &__fieldset {
     border: 2px solid #3a3a3a;
+    margin: 0px 0px 20px 0px;
+    padding: 0px;
   }
 
   &__select {
@@ -140,9 +138,9 @@ body {
   }
 
   &__radio {
-    margin-bottom: 25px;
     color: $clr-white;
     font-family: $fnt-arimo;
+    margin: 15px 0px 15px 15px;
   }
 
   &__btn {
@@ -172,10 +170,5 @@ body {
         color: $clr-white;
       }
     }
-  }
-
-  &__fieldset {
-    margin: 0px;
-    padding: 0px;
   }
 }
