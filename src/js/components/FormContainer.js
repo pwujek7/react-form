@@ -64,12 +64,37 @@ class FormContainer extends React.Component {
     });
   }
 
-  handleFormSubmit() {
+  handleFormSubmit(e) {
+    e.preventDefault();
+    let data = {
+      name: this.state.name,
+      surname: this.state.surname,
+      email: this.state.email,
+      phone: this.state.phone,
+      gender: this.state.gender,
+      dayOfBirth: this.state.dayOfBirth,
+      monthOfBirth: this.state.monthOfBirth,
+      yearOfBirth: this.state.yearOfBirth,
+      description: this.state.description
+    }
 
+    console.log("Send via POST: ", data);
+    this.handleFormClear(e);
   }
 
-  handleFormClear() {
-
+  handleFormClear(e) {
+    e.preventDefault();
+    this.setState({
+      name: "",
+      surname: "",
+      email: "",
+      phone: "",
+      gender: "",
+      dayOfBirth: "",
+      monthOfBirth: "",
+      yearOfBirth: "",
+      description: ""
+    });
   }
 
   handleNameChange(e) {
